@@ -1,0 +1,90 @@
+<div class="form-group container" style="max-width: 400px">
+  <form [formGroup]="registerForm" (ngSubmit)="addUser()">
+    <label class="form-label d-flex justify-content-center mt-4"
+      ><b><font color="#46877f">Yeni Bir Hesap Oluştur</font></b></label
+    >
+    <div class="form-floating mb-3">
+      <input
+        type="text"
+        class="form-control"
+        id="floatingInput"
+        formControlName="firstName"
+        placeholder="Ad"
+      />
+      <label for="floatingInput">Adınız</label>
+      <span
+        class="help-block"
+        *ngIf="
+          registerForm.get('firstName')?.hasError('required') &&
+          registerForm.get('firstName')?.touched
+        "
+      >
+      <font color="#FF0000">Ad Zorunludur</font>
+      </span>
+    </div>
+    <div class="form-floating mb-3">
+      <input
+        type="text"
+        class="form-control"
+        id="floatingInput"
+        formControlName="surName"
+        placeholder="SoyAd"
+      />
+      <label for="floatingInput">Soyadınız</label>
+      <span
+        class="help-block"
+        *ngIf="
+          registerForm.get('surName')?.hasError('required') &&
+          registerForm.get('surName')?.touched
+        "
+      >
+      <font color="#FF0000">Soyad Zorunludur</font>
+      </span>
+    </div>
+    <div class="form-floating mb-3">
+      <input
+        type="text"
+        class="form-control"
+        id="floatingInput"
+        formControlName="userName"
+        placeholder="kullanıcıadı"
+      />
+      <label for="floatingInput">Kullanıcı Adı</label>
+      <span
+        class="help-block"
+        *ngIf="
+          registerForm.get('userName')?.hasError('required') &&
+          registerForm.get('userName')?.touched
+        "
+      >
+      <font color="#FF0000">Kullanıcı Adı Zorunludur</font>
+      </span>
+    </div>
+    <div class="form-floating mb-3">
+      <input
+        type="password"
+        class="form-control"
+        id="floatingPassword"
+        formControlName="password"
+        placeholder="password"
+      />
+      <label for="floatingPassword">Şifre</label>
+      <span
+        class="help-block"
+        *ngIf="
+          registerForm.get('password')?.hasError('required') &&
+          registerForm.get('password')?.touched
+        "
+      >
+      <font color="#FF0000">Şifre Zorunludur</font>
+      </span>
+    </div>
+    <button
+      type="submit"
+      class="btn btn-md btn-primary btn-block"
+      [disabled]="!registerForm.valid"
+    >
+      Kaydet
+    </button>
+  </form>
+</div>

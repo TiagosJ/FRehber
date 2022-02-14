@@ -1,0 +1,30 @@
+<div class="album py-5 bg-light">
+  <div class="container">
+    <div  class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      <div *ngFor = "let city of cities" class="col">
+        <h2>{{city.name}}</h2>
+        <div class="card shadow-sm">
+          
+          <img src="{{city.photoUrl}}" style="height: 225px; width:100% "alt="Yüklü Medya Bulunamadı">
+          <!-- <img src="data:image/png;base64,{{city.qrCode}}" style="height: 225px; width:100% "alt="Yüklü Medya Bulunamadı"> -->
+          <div class="card-body">
+            <p class="card-text">
+              {{city.subject}}
+            </p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" routerLink ="/cityDetail2/{{city.id}}"  class="btn btn-sm btn-outline-secondary">
+                  Görüntüle
+                </button>
+                <button type="button" routerLink ="/cityDetail/{{city.id}}" class="btn btn-sm btn-outline-secondary">
+                  Düzenle
+                </button>
+              </div>
+              <small class="text-muted">     Yazar :    {{city.firstName + "   " +city.surName}}       </small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
